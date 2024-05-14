@@ -5,53 +5,59 @@ const employeesArray = []
 
 
   // Collect employee data
-//const collectEmployees = function () {
-let employee = {
-  firstName: "First",
-  lastName: "Last",
-  employer: "Employer",
-  salary: 0
-}
+let collectEmployees = function () {
+  let employee = {
+    firstName: "First",
+    lastName: "Last",
+    salary: 0
+  }
 
 
-let getEmployee = function() {
-
-  while (true) {
-    //adding to employee object
-      employee.firstName = prompt("What is the employee's first name?")
-      employee.lastName = prompt("What is the employee's last name?")
-      employee.employer = prompt("Who is the employee's employer?")
-      let salary = prompt("What is the employee's annual salary?")
+  //let collectEmployees = function() {
+  let addUser = true
+    while (addUser) {
+      //adding to employee object
+        employee.firstName = prompt("What is the employee's first name?")
+        employee.lastName = prompt("What is the employee's last name?")
+        let userSalary = prompt("What is the employee's annual salary?")
 
 
 
-    //
+      //checking to make sure salary is a valid integer
+      if ((userSalary < 0) || (userSalary > 1000000000) || isNaN(userSalary)) {
+        userSalary = prompt("Stop playin. Enter a valid salary.")
+      }
+      else {
+        employee.salary = userSalary
+      }
+
+      employeesArray.push(employee)
+
+
+      // asking user abt adding another employee
+      addUser = confirm("Employee added. Would you like to add another?")
+      console.log(employee)
     }
-}
-
-  // TODO: Get user input to create and return an array of employee objects
-
-  //collectEmployees()
-
-
-//while (addEmployee == True) {
-  //collectEmployees()
-  //let addEmployee = confirm("Would you like to add an employee?")
-//}
-
-
-// trigger prompts on button press
-addEmployeesBtn.addEventListener('click', function(){
-  console.log("Button clicked")
-  getEmployee()
-})
   
+
+  console.log(employeesArray)
+
+    // TODO: Get user input to create and return an array of employee objects
+
+  // trigger prompts on button press
+  addEmployeesBtn.addEventListener('click', function(){
+    collectEmployees()
+    console.log("Button clicked")
+    
+  })
+}
 
 
 
 // Display the average salary
 const displayAverageSalary = function (employeesArray) {
   // TODO: Calculate and display the average salary
+  
 
 }
 
