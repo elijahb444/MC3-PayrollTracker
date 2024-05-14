@@ -4,49 +4,38 @@ const addEmployeesBtn = document.querySelector('#add-employees-btn');
 //initialize employee array 
 const employeesArray = []
 
-
-// trigger prompts on button press
-//addEmployeesBtn.addEventListener('click', function(){
-  //collectEmployees()
-  //console.log("Button clicked")
-  
-//})
-
 // Collect employee data
 const collectEmployees = function() {
-  let employee = {
-    firstName: "First",
-    lastName: "Last",
-    salary: 0
-  }
-
-  //initialize employee array 
-  const employeesArray = []
 
 // while loop keeps adding employees until user cancels
   let addUser = true
-  while (addUser) {
-    //adding to employee object
-      employee.firstName = prompt("What is the employee's first name?")
-      employee.lastName = prompt("What is the employee's last name?")
-      let userSalary = prompt("What is the employee's annual salary?")
+    while (addUser) {
+      let employee = {
+        firstName: "First",
+        lastName: "Last",
+        salary: 0
+      }
+      //adding to employee object
+        employee.firstName = prompt("What is the employee's first name?")
+        employee.lastName = prompt("What is the employee's last name?")
+        let userSalary = prompt("What is the employee's annual salary?")
+
+    
+
+      //checking to make sure salary is a valid integer
+      if ((userSalary < 0) || (userSalary > 1000000000) || isNaN(userSalary)) {
+        userSalary = prompt("Stop playin. Enter a valid salary.")
+      }
+      else {
+        employee.salary = userSalary
+      }
+
+      employeesArray.push(employee)
 
 
-
-    //checking to make sure salary is a valid integer
-    if ((userSalary < 0) || (userSalary > 1000000000) || isNaN(userSalary)) {
-      userSalary = prompt("Stop playin. Enter a valid salary.")
-    }
-    else {
-      employee.salary = userSalary
-    }
-
-    employeesArray.push(employee)
-
-
-    // asking if user will add another employee
-    addUser = confirm("Employee added. Would you like to add another?")
-    console.log(employee)
+      // asking if user will add another employee
+      addUser = confirm("Employee added. Would you like to add another?")
+      console.log(employee)
   }
   
 
@@ -55,6 +44,8 @@ const collectEmployees = function() {
   
   return employeesArray
 }
+
+console.log(employeesArray.length)
 
 // Display the average salary
 const displayAverageSalary = function(employeesArray) {
@@ -66,11 +57,18 @@ const displayAverageSalary = function(employeesArray) {
     return sum / employeesArray.length
 }
 
+//console.log(`The average salary is ${displayAverageSalary()}`)
 
 // Select a random employee
 const getRandomEmployee = function(employeesArray) {
   // TODO: Select and display a random employee
+  //generates random index from array
+  const randomIndex = Math.floor(Math.random() * employeesArray.length)
+
+  return randomIndex
 }
+
+
 
 /*
   ====================
