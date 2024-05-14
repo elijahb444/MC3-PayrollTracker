@@ -24,7 +24,7 @@ const collectEmployees = function() {
     
 
       //checking to make sure salary is a valid integer
-      if ((userSalary < 0) || (userSalary > 1000000000) || isNaN(userSalary)) {
+      if ((userSalary < 0) || (userSalary > 100000000000) || isNaN(userSalary)) {
         employee.salary = parseInt(prompt("Stop playin. Enter a valid salary."))
 
          //use parseInt to convert salary input from string to integer
@@ -39,14 +39,9 @@ const collectEmployees = function() {
 
       // asking if user will add another employee
       addUser = confirm("Employee added. Would you like to add another?")
-      console.log(employee)
       
 
   }
-  
-
-  console.log(employeesArray)
-  console.log(employeesArray.length)
   
   return employeesArray
 }
