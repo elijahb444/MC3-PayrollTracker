@@ -4,7 +4,7 @@
 
 The goal of this project was to write JavaScript code that completes the program, in this case being the functions necessary to take in user input and manipulate it. 
 
-That 'manipulation' includes finding an average salary of a user-input list of objects, as well as choosing randomly from those objects. 
+That 'manipulation' includes finding an average salary of a user-input list of objects, as well as choosing randomly from those objects to decide a 'winner' of some unspecified prize.
 
 This project also helped me to familiarize myself with objects, their properties, and how to target said properties specifically, if need be. 
 
