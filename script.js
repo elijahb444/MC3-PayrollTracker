@@ -19,18 +19,19 @@ const collectEmployees = function() {
       //adding to employee object
         employee.firstName = prompt("What is the employee's first name?")
         employee.lastName = prompt("What is the employee's last name?")
-        let userSalary = parseInt(prompt("What is the employee's annual salary?"))
-        //use parseInt to convert salary input from string to integer
-        //found on W3
+        let userSalary = (prompt("What is the employee's annual salary?"))
 
     
 
       //checking to make sure salary is a valid integer
       if ((userSalary < 0) || (userSalary > 1000000000) || isNaN(userSalary)) {
-        userSalary = parseInt(prompt("Stop playin. Enter a valid salary."))
+        employee.salary = parseInt(prompt("Stop playin. Enter a valid salary."))
+
+         //use parseInt to convert salary input from string to integer
+        //found on W3
       }
       else {
-        employee.salary = userSalary
+        employee.salary = parseInt(userSalary)
       }
 
       employeesArray.push(employee)
@@ -49,7 +50,7 @@ const collectEmployees = function() {
   
   return employeesArray
 }
-//console.log(employeesArray.length)
+
 
 // Display the average salary
 const displayAverageSalary = function(employeesArray) {
@@ -69,11 +70,8 @@ const getRandomEmployee = function(employeesArray) {
   //generates random index from array
   const randomIndex = Math.floor(Math.random() * employeesArray.length)
 
-  return console.log(`Congratulations, ${employeesArray[randomIndex].firstName}! You win!`)
+  return console.log(`Congratulations, ${employeesArray[randomIndex].firstName} ${employeesArray[randomIndex].lastName}! You win!`)
 }
-
-//console.log(`Congratulations, ${getRandomEmployee(employeesArray)}!, you win!`)
-
 
 
 /*
