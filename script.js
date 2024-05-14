@@ -7,6 +7,7 @@ const employeesArray = []
 // Collect employee data
 const collectEmployees = function() {
 
+
 // while loop keeps adding employees until user cancels
   let addUser = true
     while (addUser) {
@@ -18,13 +19,15 @@ const collectEmployees = function() {
       //adding to employee object
         employee.firstName = prompt("What is the employee's first name?")
         employee.lastName = prompt("What is the employee's last name?")
-        let userSalary = prompt("What is the employee's annual salary?")
+        let userSalary = parseInt(prompt("What is the employee's annual salary?"))
+        //use parseInt to convert salary input from string to integer
+        //found on W3
 
     
 
       //checking to make sure salary is a valid integer
       if ((userSalary < 0) || (userSalary > 1000000000) || isNaN(userSalary)) {
-        userSalary = prompt("Stop playin. Enter a valid salary.")
+        userSalary = parseInt(prompt("Stop playin. Enter a valid salary."))
       }
       else {
         employee.salary = userSalary
@@ -36,6 +39,8 @@ const collectEmployees = function() {
       // asking if user will add another employee
       addUser = confirm("Employee added. Would you like to add another?")
       console.log(employee)
+      
+
   }
   
 
@@ -44,20 +49,19 @@ const collectEmployees = function() {
   
   return employeesArray
 }
-
-console.log(employeesArray.length)
+//console.log(employeesArray.length)
 
 // Display the average salary
 const displayAverageSalary = function(employeesArray) {
   // TODO: Calculate and display the average salary
   let sum = 0
     for (i = 0; i < employeesArray.length; i++) {
-      sum += employeesArray[i]
+      sum += employeesArray[i].salary
     }
-    return sum / employeesArray.length
+    const average = sum / employeesArray.length
+    return console.log(`There are ${employeesArray.length} employees. The average salary is ${average}.`)
 }
 
-//console.log(`The average salary is ${displayAverageSalary()}`)
 
 // Select a random employee
 const getRandomEmployee = function(employeesArray) {
@@ -65,8 +69,10 @@ const getRandomEmployee = function(employeesArray) {
   //generates random index from array
   const randomIndex = Math.floor(Math.random() * employeesArray.length)
 
-  return randomIndex
+  return console.log(`Congratulations, ${employeesArray[randomIndex].firstName}! You win!`)
 }
+
+//console.log(`Congratulations, ${getRandomEmployee(employeesArray)}!, you win!`)
 
 
 
